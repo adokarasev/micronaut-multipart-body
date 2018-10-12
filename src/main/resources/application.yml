@@ -1,0 +1,8 @@
+micronaut:
+    application:
+        name: multipart-body
+    server:
+        port: 8080
+        maxRequestSize: 20MB
+        multipart:
+            maxFileSize: 10MB
