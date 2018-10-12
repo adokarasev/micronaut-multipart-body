@@ -1,5 +1,18 @@
 # Sample project to verify Micronaut issue [#722](https://github.com/micronaut-projects/micronaut-core/issues/722)
 
+## ISSUE RESOLVED
+
+The problem was I did not specify the content type on the declarative client's `upload()` method.
+The correct way to declare a method for file uploads is this:
+
+```$java
+@Client("upload-service")
+public interface UploadClient {
+    @Post(produces = MediaType.MULTIPART_FORM_DATA)
+    List<String> upload(@Body MultipartBody files);
+}
+```
+
 ## Steps to reproduce
 
 ### Run tests
